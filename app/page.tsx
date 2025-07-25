@@ -25,114 +25,12 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { ProductCard } from "@/components/ProductCard"
+import { products, Product } from "@/lib/products"
+import { Header } from "@/components/Header"
+import LabelSection from "@/components/LabelSection"
 
 export default function HomePage() {
-  const featuredProducts = [
-    {
-      id: 1,
-      name: "Darjeeling First Flush FTGFOP1",
-      price: 899,
-      originalPrice: 1299,
-      discount: 31,
-      rating: 4.8,
-      reviews: 124,
-      image: "/product-front.jpg",
-      badge: "FRESH ARRIVAL",
-      inStock: true,
-      weight: "100g",
-    },
-    {
-      id: 2,
-      name: "Darjeeling Second Flush SFTGFOP1",
-      price: 749,
-      originalPrice: 999,
-      discount: 25,
-      rating: 4.9,
-      reviews: 89,
-      image: "/product-front.jpg",
-      badge: "BEST SELLER",
-      inStock: true,
-      weight: "100g",
-    },
-    {
-      id: 3,
-      name: "Himalayan Green Tea",
-      price: 599,
-      originalPrice: 799,
-      discount: 25,
-      rating: 4.7,
-      reviews: 156,
-      image: "/product-front.jpg",
-      badge: "ORGANIC",
-      inStock: true,
-      weight: "100g",
-    },
-    {
-      id: 4,
-      name: "Gorkha Warrior Black Tea",
-      price: 849,
-      originalPrice: 1199,
-      discount: 29,
-      rating: 4.8,
-      reviews: 203,
-      image: "/product-front.jpg",
-      badge: "LIMITED EDITION",
-      inStock: true,
-      weight: "100g",
-    },
-    {
-      id: 5,
-      name: "Darjeeling White Tea",
-      price: 1299,
-      originalPrice: 1699,
-      discount: 24,
-      rating: 4.9,
-      reviews: 67,
-      image: "/product-front.jpg",
-      badge: "PREMIUM",
-      inStock: true,
-      weight: "50g",
-    },
-    {
-      id: 6,
-      name: "Monsoon Flush Special",
-      price: 649,
-      originalPrice: 899,
-      discount: 28,
-      rating: 4.6,
-      reviews: 98,
-      image: "/product-front.jpg",
-      badge: "SEASONAL",
-      inStock: true,
-      weight: "100g",
-    },
-    {
-      id: 7,
-      name: "Heritage Blend 1870",
-      price: 999,
-      originalPrice: 1399,
-      discount: 29,
-      rating: 4.9,
-      reviews: 145,
-      image: "/product-front.jpg",
-      badge: "SIGNATURE",
-      inStock: true,
-      weight: "100g",
-    },
-    {
-      id: 8,
-      name: "Himalayan Oolong",
-      price: 1149,
-      originalPrice: 1499,
-      discount: 23,
-      rating: 4.8,
-      reviews: 78,
-      image: "/product-front.jpg",
-      badge: "ARTISAN",
-      inStock: true,
-      weight: "75g",
-    },
-  ]
 
   const categories = [
     { name: "First Flush", count: 24, image: "/placeholder.svg?height=100&width=100" },
@@ -145,179 +43,63 @@ export default function HomePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Top Bar */}
-      <div className="bg-green-800 text-white py-2 px-4">
-        <div className="container mx-auto flex justify-between items-center text-sm">
-          <div className="flex items-center space-x-6">
-            <span className="flex items-center">
-              <Phone className="h-4 w-4 mr-2" />
-              +91-9800341000
-            </span>
-            <span className="flex items-center">
-              <Mail className="h-4 w-4 mr-2" />
-              info@gorkhaleaf.com
-            </span>
-          </div>
-          <div className="flex items-center space-x-4">
-            <span>FREE SHIPPING ON ORDERS ABOVE ₹999</span>
-            <div className="flex space-x-2">
-              <Link href="#" className="hover:text-green-200">
-                Track Order
-              </Link>
-              <span>|</span>
-              <Link href="#" className="hover:text-green-200">
-                Help
-              </Link>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Header */}
-      <header className="bg-white border-b border-green-100 sticky top-0 z-50 shadow-sm">
-        <div className="container mx-auto px-4">
-          {/* Main Header */}
-          <div className="flex items-center justify-between py-4">
-            {/* Logo */}
-            <div className="flex items-center">
-              <Image
-                src="/logo.jpg"
-                alt="Gorkha Leaf - Where Every Leaf Tells a Tale"
-                width={200}
-                height={60}
-                className="h-12 w-auto"
-                priority
-              />
-            </div>
-
-            {/* Search Bar */}
-            <div className="flex-1 max-w-2xl mx-8">
-              <div className="relative">
-                <Input
-                  type="text"
-                  placeholder="Search for teas, gifts, accessories..."
-                  className="w-full pl-4 pr-12 py-3 border-2 border-green-200 rounded-lg focus:border-green-500"
-                />
-                <Button size="sm" className="absolute right-1 top-1 bg-green-600 hover:bg-green-700 px-4">
-                  <Search className="h-4 w-4" />
-                </Button>
-              </div>
-            </div>
-
-            {/* Header Actions */}
-            <div className="flex items-center space-x-4">
-              <Button variant="ghost" size="sm" className="flex items-center space-x-2">
-                <User className="h-5 w-5" />
-                <span>Login</span>
-              </Button>
-              <Button variant="ghost" size="sm" className="flex items-center space-x-2">
-                <Heart className="h-5 w-5" />
-                <span>Wishlist</span>
-              </Button>
-              <Button variant="ghost" size="sm" className="flex items-center space-x-2 relative">
-                <ShoppingCart className="h-5 w-5" />
-                <span>Cart</span>
-                <Badge className="absolute -top-2 -right-2 bg-amber-600 text-white text-xs">3</Badge>
-              </Button>
-            </div>
-          </div>
-
-          {/* Navigation */}
-          <nav className="border-t border-green-100 py-3">
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-8">
-                <div className="relative group">
-                  <Button variant="ghost" className="flex items-center space-x-1 text-green-700 hover:text-green-900">
-                    <span>TEA FLUSH</span>
-                    <ChevronDown className="h-4 w-4" />
-                  </Button>
-                </div>
-                <div className="relative group">
-                  <Button variant="ghost" className="flex items-center space-x-1 text-green-700 hover:text-green-900">
-                    <span>TEA TYPES</span>
-                    <ChevronDown className="h-4 w-4" />
-                  </Button>
-                </div>
-                <div className="relative group">
-                  <Button variant="ghost" className="flex items-center space-x-1 text-green-700 hover:text-green-900">
-                    <span>GIFT SETS</span>
-                    <ChevronDown className="h-4 w-4" />
-                  </Button>
-                </div>
-                <Link href="#" className="text-green-700 hover:text-green-900 font-medium">
-                  TEA SAMPLES
-                </Link>
-                <Link href="#" className="text-green-700 hover:text-green-900 font-medium">
-                  ACCESSORIES
-                </Link>
-                <Link href="#" className="text-green-700 hover:text-green-900 font-medium">
-                  OUR STORY
-                </Link>
-              </div>
-              <div className="flex items-center space-x-4">
-                <Badge className="bg-red-100 text-red-800 border-red-200">UPTO 35% OFF</Badge>
-                <Badge className="bg-green-100 text-green-800 border-green-200">FRESH ARRIVALS</Badge>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </header>
+      <Header />
 
       {/* Hero Section */}
-      <section className="relative">
-        <div className="grid lg:grid-cols-3 gap-4 p-4">
+      <section className="relative h-[550px]">
+        <div className="grid lg:grid-cols-3 gap-4 p-4 h-full">
           {/* Main Hero */}
-          <div className="lg:col-span-2 relative bg-gradient-to-r from-green-50 to-green-100 rounded-lg overflow-hidden">
-            <div className="flex items-center h-80">
-              <div className="flex-1 p-8">
-                <Badge className="mb-4 bg-green-600 text-white">Fresh Production</Badge>
-                <h1 className="text-4xl font-bold text-green-800 mb-4">Darjeeling Second Flush Tea 2025</h1>
-                <p className="text-xl text-green-600 mb-6">UPTO 32% OFF</p>
-                <Button size="lg" className="bg-amber-600 hover:bg-amber-700">
-                  Shop Now
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
-              </div>
-              <div className="flex-1 relative">
-                <Image
-                  src="/placeholder.svg?height=300&width=400"
-                  alt="Fresh Tea Production"
-                  width={400}
-                  height={300}
-                  className="object-cover"
-                />
-              </div>
+          <div className="lg:col-span-2 relative rounded-lg overflow-hidden">
+            <Image
+              src="/maincollage.jpg"
+              alt="Fresh Tea Production"
+              fill
+              className="z-0 object-cover"
+            />
+            <div className="absolute inset-0 bg-black bg-opacity-30 z-10"></div>
+            <div className="relative z-20 flex flex-col items-start justify-start h-full p-8 pt-16 text-white">
+              <Badge className="mb-4 bg-green-600 text-white border-none">Fresh Production</Badge>
+              <h1 className="text-6xl font-bold mb-4">Darjeeling Second Flush Tea 2025</h1>
+              <p className="text-3xl mb-6">UPTO 32% OFF</p>
+              <Button size="lg" className="bg-amber-600 hover:bg-amber-700">
+                Shop Now
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
             </div>
           </div>
 
           {/* Side Banners */}
-          <div className="space-y-4">
-            <Card className="bg-gradient-to-r from-blue-500 to-blue-600 text-white overflow-hidden">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-2">Fresh Production Offer</h3>
-                <p className="text-blue-100 mb-4">on Second Flush Teas up to 32% OFF</p>
+          <div className="flex flex-col gap-4">
+            <Card className="text-white overflow-hidden relative flex-1">
+              <Image
+                src="/darjeeling-500x500.jpg"
+                alt="Fresh Production Offer"
+                fill
+                className="object-cover z-0"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-40 z-10" />
+              <CardContent className="p-6 relative z-20 flex flex-col justify-center items-start h-full">
+                <h3 className="text-4xl font-bold mb-2">Fresh Production Offer</h3>
+                <p className="text-gray-200 mb-4">on Second Flush Teas up to 32% OFF</p>
                 <Button variant="secondary" size="sm">
                   Explore
                 </Button>
               </CardContent>
             </Card>
 
-            <Card className="bg-gradient-to-r from-purple-500 to-purple-600 text-white overflow-hidden">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-2">Sample Packs</h3>
-                <p className="text-purple-100 mb-4">"Try before you buy"</p>
+            <Card className="text-white overflow-hidden relative flex-1">
+              <Image
+                src="/home2.png"
+                alt="Sample Packs"
+                fill
+                className="object-cover z-0"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-40 z-10" />
+              <CardContent className="p-6 relative z-20 flex flex-col justify-center items-start h-full">
+                <h3 className="text-4xl font-bold mb-2">Sample Packs</h3>
+                <p className="text-gray-200 mb-4">"Try before you buy"</p>
                 <Button variant="secondary" size="sm">
                   Shop Samples
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="bg-gradient-to-r from-orange-500 to-orange-600 text-white overflow-hidden">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-2">Gift Sets</h3>
-                <p className="text-orange-100 mb-4">Perfect for tea lovers</p>
-                <Button variant="secondary" size="sm">
-                  View Gifts
                 </Button>
               </CardContent>
             </Card>
@@ -361,121 +143,14 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Promotional Gallery Section */}
-      <section className="py-12 bg-white">
-        <div className="container mx-auto px-4">
-          {/* Image Gallery Strip */}
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-8">
-            <div className="aspect-square rounded-lg overflow-hidden">
-              <Image
-                src="/placeholder.svg?height=200&width=200&text=Tea+Packages"
-                alt="Premium Tea Packages"
-                width={200}
-                height={200}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <div className="aspect-square rounded-lg overflow-hidden">
-              <Image
-                src="/placeholder.svg?height=200&width=200&text=Tea+Cup"
-                alt="Fresh Brewed Tea"
-                width={200}
-                height={200}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <div className="aspect-square rounded-lg overflow-hidden">
-              <Image
-                src="/placeholder.svg?height=200&width=200&text=Tea+Accessories"
-                alt="Tea Accessories"
-                width={200}
-                height={200}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <div className="aspect-square rounded-lg overflow-hidden">
-              <Image
-                src="/placeholder.svg?height=200&width=200&text=Gift+Sets"
-                alt="Tea Gift Sets"
-                width={200}
-                height={200}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <div className="aspect-square rounded-lg overflow-hidden">
-              <Image
-                src="/placeholder.svg?height=200&width=200&text=Herbal+Tea"
-                alt="Herbal Tea Collection"
-                width={200}
-                height={200}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <div className="aspect-square rounded-lg overflow-hidden">
-              <Image
-                src="/placeholder.svg?height=200&width=200&text=Premium+Blends"
-                alt="Premium Tea Blends"
-                width={200}
-                height={200}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-          </div>
-
-          {/* Main Headline */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-700 mb-8 tracking-wide">
-              ORDER BEST DARJEELING TEA ONLINE IN INDIA AT BEST PRICES
-            </h2>
-          </div>
-
-          {/* Herbal Tea Promotional Banner */}
-          <div className="relative rounded-2xl overflow-hidden bg-gradient-to-r from-green-50 to-amber-50 mb-8">
-            <div className="absolute inset-0">
-              <Image
-                src="/placeholder.svg?height=400&width=1200&text=Herbal+Tea+Background"
-                alt="Herbal Tea Background"
-                width={1200}
-                height={400}
-                className="w-full h-full object-cover opacity-30"
-              />
-            </div>
-            <div className="relative z-10 py-16 px-8">
-              <div className="max-w-4xl mx-auto text-center">
-                <h3 className="text-4xl md:text-5xl font-bold mb-6">
-                  <span className="text-green-800">BUY </span>
-                  <span className="text-orange-500">HERBAL</span>
-                  <span className="text-green-800"> & </span>
-                  <br className="md:hidden" />
-                  <span className="text-orange-500">FLOWER</span>
-                  <span className="text-green-800"> BLEND TEAS</span>
-                </h3>
-
-                <Button
-                  size="lg"
-                  className="bg-green-700 hover:bg-green-800 text-white px-8 py-4 text-lg rounded-full mb-8"
-                >
-                  SHOP NOW
-                </Button>
-
-                <div className="bg-green-700 text-white px-6 py-3 rounded-lg inline-block">
-                  <div className="text-2xl font-bold">ChaiDhara</div>
-                  <div className="text-sm text-green-100">HERBAL TEAS - FLOWER BLEND TEAS</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Categories Section */}
       <section className="py-12 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-green-800 mb-4">Shop by Category</h2>
+            <h2 className="text-3xl font-bold text-green-800 mb-4">Our Tea Collection</h2>
             <p className="text-green-600 max-w-2xl mx-auto">
-              Discover our premium collection of authentic Darjeeling teas, each with its unique character and flavor
-              profile
+              Explore our handpicked selection of the finest Darjeeling teas, from classic flushes to exclusive blends.
             </p>
           </div>
 
@@ -499,7 +174,7 @@ export default function HomePage() {
       </section>
 
       {/* Featured Products */}
-      <section className="py-12 bg-gray-50">
+      <section id="featured-products" className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-10">
             <div>
@@ -511,104 +186,12 @@ export default function HomePage() {
                 <Filter className="h-4 w-4" />
                 <span>Filter</span>
               </Button>
-              <Button variant="outline" size="sm">
-                <Grid className="h-4 w-4" />
-              </Button>
-              <Button variant="outline" size="sm">
-                <List className="h-4 w-4" />
-              </Button>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredProducts.map((product) => (
-              <Card
-                key={product.id}
-                className="group hover:shadow-xl transition-all duration-300 border-green-100 relative overflow-hidden"
-              >
-                <div className="absolute top-3 left-3 z-10">
-                  <Badge
-                    className={`text-xs ${
-                      product.badge === "FRESH ARRIVAL"
-                        ? "bg-green-600"
-                        : product.badge === "BEST SELLER"
-                          ? "bg-blue-600"
-                          : product.badge === "ORGANIC"
-                            ? "bg-emerald-600"
-                            : product.badge === "LIMITED EDITION"
-                              ? "bg-purple-600"
-                              : product.badge === "PREMIUM"
-                                ? "bg-amber-600"
-                                : product.badge === "SEASONAL"
-                                  ? "bg-orange-600"
-                                  : product.badge === "SIGNATURE"
-                                    ? "bg-red-600"
-                                    : "bg-teal-600"
-                    } text-white`}
-                  >
-                    {product.badge}
-                  </Badge>
-                </div>
-                <div className="absolute top-3 right-3 z-10">
-                  <Button variant="ghost" size="sm" className="p-2 bg-white/80 hover:bg-white">
-                    <Heart className="h-4 w-4" />
-                  </Button>
-                </div>
-                {product.discount > 0 && (
-                  <div className="absolute top-12 left-3 z-10">
-                    <Badge className="bg-red-500 text-white text-xs">-{product.discount}%</Badge>
-                  </div>
-                )}
-
-                <CardContent className="p-0">
-                  <div className="relative overflow-hidden">
-                    <Image
-                      src={product.image || "/placeholder.svg"}
-                      alt={product.name}
-                      width={300}
-                      height={300}
-                      className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
-
-                  <div className="p-4">
-                    <div className="flex items-center mb-2">
-                      <div className="flex items-center">
-                        {[...Array(5)].map((_, i) => (
-                          <Star
-                            key={i}
-                            className={`h-4 w-4 ${
-                              i < Math.floor(product.rating) ? "text-yellow-400 fill-current" : "text-gray-300"
-                            }`}
-                          />
-                        ))}
-                        <span className="text-sm text-gray-600 ml-2">({product.reviews})</span>
-                      </div>
-                    </div>
-
-                    <h3 className="font-semibold text-green-800 mb-2 line-clamp-2 group-hover:text-green-600 transition-colors">
-                      {product.name}
-                    </h3>
-
-                    <p className="text-sm text-gray-600 mb-3">{product.weight}</p>
-
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="flex items-center space-x-2">
-                        <span className="text-xl font-bold text-green-800">₹{product.price}</span>
-                        {product.originalPrice > product.price && (
-                          <span className="text-sm text-gray-500 line-through">₹{product.originalPrice}</span>
-                        )}
-                      </div>
-                      <div className="flex items-center text-green-600">
-                        <CheckCircle className="h-4 w-4 mr-1" />
-                        <span className="text-sm">In Stock</span>
-                      </div>
-                    </div>
-
-                    <Button className="w-full bg-green-600 hover:bg-green-700 text-white">Add to Cart</Button>
-                  </div>
-                </CardContent>
-              </Card>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            {products.map((product) => (
+              <ProductCard key={product.id} product={product} />
             ))}
           </div>
 
@@ -622,6 +205,13 @@ export default function HomePage() {
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
           </div>
+        </div>
+      </section>
+
+      {/* Label Section */}
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+           <LabelSection />
         </div>
       </section>
 
@@ -646,11 +236,11 @@ export default function HomePage() {
               </div>
               <div className="grid grid-cols-3 gap-6 mt-8">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-green-800">150+</div>
+                  <div className="text-2xl font-bold text-green-800">5+</div>
                   <div className="text-sm text-green-600">Years of Heritage</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-green-800">50+</div>
+                  <div className="text-2xl font-bold text-green-800">40+</div>
                   <div className="text-sm text-green-600">Tea Varieties</div>
                 </div>
                 <div className="text-center">
@@ -661,9 +251,9 @@ export default function HomePage() {
             </div>
             <div className="relative">
               <Image
-                src="/placeholder.svg?height=500&width=600"
-                alt="Tea Garden Heritage"
-                width={600}
+                src="/aboutsectionhomepage.jpg"
+                alt="Gorkha Leaf Tea Garden"
+                width={500}
                 height={500}
                 className="rounded-lg shadow-2xl"
               />
@@ -763,7 +353,7 @@ export default function HomePage() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-white transition-colors">
+                  <Link href="/our-story" className="hover:text-white transition-colors">
                     Our Story
                   </Link>
                 </li>

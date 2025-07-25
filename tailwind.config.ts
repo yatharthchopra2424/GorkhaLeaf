@@ -22,6 +22,8 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-inter)"],
         serif: ["var(--font-playfair)"],
+        gloock: ["var(--font-gloock)"],
+        "fira-sans-condensed": ["var(--font-fira-sans-condensed)"],
       },
       colors: {
         border: "hsl(var(--border))",

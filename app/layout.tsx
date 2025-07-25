@@ -1,10 +1,17 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, Playfair_Display } from "next/font/google"
+import { Inter, Playfair_Display, Gloock, Fira_Sans_Condensed } from "next/font/google"
 import "./globals.css"
+import { CartProvider } from "@/context/CartContext"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" })
+const gloock = Gloock({ subsets: ["latin"], weight: "400", variable: "--font-gloock" })
+const firaSansCondensed = Fira_Sans_Condensed({
+  subsets: ["latin"],
+  weight: "700",
+  variable: "--font-fira-sans-condensed",
+})
 
 export const metadata: Metadata = {
   title: "Gorkha Leaf - Premium Darjeeling Tea | Authentic Tea Estate Since 1870s",
@@ -60,11 +67,16 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className={inter.className}>{children}</body>
+    <html
+      lang="en"
+      className={`${inter.variable} ${playfair.variable} ${gloock.variable} ${firaSansCondensed.variable}`}
+    >
+      <body className={inter.className}>
+        <CartProvider>{children}</CartProvider>
+      </body>
     </html>
-  )
+  );
 }
