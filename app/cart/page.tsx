@@ -30,7 +30,7 @@ export default function CartPage() {
   return (
     <div className="bg-white">
       <Header />
-      <main className="container mx-auto px-4 py-12">
+      <main className="container mx-auto px-4 py-12 pt-32">
         <div className="text-sm text-gray-500 mb-4">
           <Link href="/" className="hover:text-green-600">
             SHOPPING CART

@@ -24,7 +24,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <div className="bg-white">
+    <div className="bg-background">
       <Header />
       <main className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-2 gap-12">

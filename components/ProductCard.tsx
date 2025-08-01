@@ -2,8 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
-import { Badge } from "@/components/ui/badge"
-import { Heart, Check } from "lucide-react"
+import { Check } from "lucide-react"
 import { Product } from "@/lib/products"
 import Link from "next/link"
 import { useCart } from "@/context/CartContext"
@@ -25,51 +24,48 @@ export function ProductCard({ product }: ProductCardProps) {
   }
 
   return (
-    <div className="group transition-all duration-300 relative overflow-hidden cursor-pointer">
+    <div className="group relative overflow-hidden cursor-pointer transition-all duration-300">
       <Link href={`/products/${product.slug}`}>
-        <div className="absolute top-3 left-3 z-10">
-          <Badge className="bg-green-600 text-white">FRESH</Badge>
-        </div>
-        <div className="absolute top-3 right-3 z-10">
-          <Button variant="ghost" size="sm" className="p-2 bg-white/80 hover:bg-white">
-            <Heart className="h-4 w-4" />
-          </Button>
-        </div>
-
         <div className="relative overflow-hidden h-80">
           <Image
             src={product.image}
             alt={product.name}
             fill
-            className="w-full h-full object-contain group-hover:scale-110 transition-transform duration-300"
+            className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-110"
           />
+          <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition-all duration-300 flex items-center justify-center">
+            <Button
+              className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white py-3 px-6 text-lg"
+              style={{ backgroundColor: '#888a77' }}
+              onMouseOver={(e) => (e.currentTarget.style.backgroundColor = '#777a6b')}
+              onMouseOut={(e) => (e.currentTarget.style.backgroundColor = '#888a77')}
+              onClick={handleAddToCart}
+            >
+              {added ? (
+                <div className="flex items-center">
+                  <Check className="h-5 w-5 mr-2" />
+                  Added!
+                </div>
+              ) : (
+                "Add to Cart"
+              )}
+            </Button>
+          </div>
         </div>
       </Link>
-      <div className="p-6 text-center">
-        <Link href={`/products/${product.slug}`}>
-          <h3 className="font-semibold text-xl text-green-800 mb-3 line-clamp-2 group-hover:text-green-600 transition-colors">
-            {product.name}
-          </h3>
-          <p className="text-md text-gray-500 mb-4">{product.subname}</p>
-        </Link>
-        <div className="flex items-center justify-center space-x-4 mb-5">
-          <span className="text-2xl font-bold text-green-800">₹{product.price}</span>
-          <span className="text-md text-gray-500 line-through">₹{product.originalPrice}</span>
+      <div className="p-6">
+        <div className="flex justify-between items-start mb-3">
+          <div>
+            <h3 className="font-semibold text-xl line-clamp-2" style={{ color: '#888a77' }}>
+              {product.name}
+            </h3>
+            <p className="text-md text-left text-gray-500">{product.subname}</p>
+          </div>
+          <div className="text-right">
+            <span className="text-xl font-bold" style={{ color: '#888a77' }}>₹{product.price}</span>
+            <p className="text-md text-gray-500 line-through">₹{product.originalPrice}</p>
+          </div>
         </div>
-
-        <Button
-          className="w-full bg-green-600 hover:bg-green-700 text-white py-3 text-lg"
-          onClick={handleAddToCart}
-        >
-          {added ? (
-            <div className="flex items-center">
-              <Check className="h-5 w-5 mr-2" />
-              Added!
-            </div>
-          ) : (
-            "Add to Cart"
-          )}
-        </Button>
       </div>
     </div>
   )

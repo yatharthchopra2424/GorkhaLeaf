@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter, Playfair_Display, Gloock, Fira_Sans_Condensed } from "next/font/google"
+import { Inter, Playfair_Display, Gloock, Fira_Sans_Condensed, Philosopher } from "next/font/google"
 import "./globals.css"
 import { CartProvider } from "@/context/CartContext"
 
@@ -11,6 +11,11 @@ const firaSansCondensed = Fira_Sans_Condensed({
   subsets: ["latin"],
   weight: "700",
   variable: "--font-fira-sans-condensed",
+})
+const philosopher = Philosopher({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-philosopher",
 })
 
 export const metadata: Metadata = {
@@ -29,7 +34,7 @@ export const metadata: Metadata = {
     siteName: "Gorkha Leaf",
     images: [
       {
-        url: "/logo.jpg",
+        url: "/logo.png",
         width: 1200,
         height: 630,
         alt: "Gorkha Leaf - Where Every Leaf Tells a Tale",
@@ -40,12 +45,12 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Gorkha Leaf - Premium Darjeeling Tea Estate",
     description: "Authentic Darjeeling tea crafted with heritage, pride, and the Gorkha spirit.",
-    images: ["/logo.jpg"],
+    images: ["/logo.png"],
   },
   icons: {
-    icon: "/logo.jpg",
-    shortcut: "/logo.jpg",
-    apple: "/logo.jpg",
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
   robots: {
     index: true,
@@ -72,7 +77,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${playfair.variable} ${gloock.variable} ${firaSansCondensed.variable}`}
+      className={`${inter.variable} ${playfair.variable} ${gloock.variable} ${firaSansCondensed.variable} ${philosopher.variable}`}
     >
       <body className={inter.className}>
         <CartProvider>{children}</CartProvider>

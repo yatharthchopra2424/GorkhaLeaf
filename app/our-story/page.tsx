@@ -3,7 +3,7 @@ import { Header } from '@/components/Header';
 
 export default function OurStory() {
   return (
-    <div className="bg-gray-50 text-gray-800 font-sans">
+    <div className="bg-background text-gray-800 font-sans">
       <Header />
       <header className="relative h-96">
         <Image
@@ -21,7 +21,7 @@ export default function OurStory() {
       <main className="max-w-4xl mx-auto p-8">
         <section className="mb-12">
           <h2 className="text-3xl font-semibold text-center mb-6 text-green-800">Gorkha Leaf – Brand Manifesto</h2>
-          <div className="bg-white p-8 rounded-lg shadow-md">
+          <div className="bg-background p-8 rounded-lg shadow-md">
             <h3 className="text-2xl font-bold mb-4 text-green-700">🌿 My Story – The Heart Behind Gorkha Leaf</h3>
             <p className="mb-4">
               I was born to a family deeply rooted in the hills of Darjeeling. My mother worked tirelessly in the tea gardens, hand-plucking leaves under the sun with grace, strength, and dignity. Her labor, like that of many others in the estates, and yet, the world that sips Darjeeling tea often forgets the hands that plucked it.
@@ -52,13 +52,13 @@ export default function OurStory() {
         </section>
 
         <section className="mb-12 grid md:grid-cols-2 gap-8">
-          <div className="bg-white p-8 rounded-lg shadow-md">
+          <div className="bg-background p-8 rounded-lg shadow-md">
             <h3 className="text-2xl font-bold mb-4 text-green-700">Mission</h3>
             <p>
               To bring the authentic essence of Darjeeling’s tea culture to the world — one leaf, one story, and one soul at a time — while supporting the people and heritage that make it special.
             </p>
           </div>
-          <div className="bg-white p-8 rounded-lg shadow-md">
+          <div className="bg-background p-8 rounded-lg shadow-md">
             <h3 className="text-2xl font-bold mb-4 text-green-700">Vision</h3>
             <p>
               To become a globally loved tea brand that celebrates the Gorkha spirit, uplifts local communities, and preserves the legacy of Himalayan tea craftsmanship.
@@ -66,7 +66,7 @@ export default function OurStory() {
           </div>
         </section>
 
-        <section className="mb-12 bg-white p-8 rounded-lg shadow-md">
+        <section className="mb-12 bg-background p-8 rounded-lg shadow-md">
           <h3 className="text-2xl font-bold mb-4 text-center text-green-700">Core Values</h3>
           <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <li className="p-4 bg-green-50 rounded-md"><strong>Authenticity:</strong> We stay true to our roots — every leaf reflects Darjeeling's spirit.</li>
@@ -80,7 +80,7 @@ export default function OurStory() {
 
         <section>
           <h2 className="text-3xl font-semibold text-center mb-6 text-green-800">📜 Why I Chose the Name “Gorkha Leaf”</h2>
-          <div className="bg-white p-8 rounded-lg shadow-md">
+          <div className="bg-background p-8 rounded-lg shadow-md">
             <p className="mb-4">
               The name Gorkha Leaf is not just a brand — it’s a tribute to who we are, where we come from, and what we stand for.
             </p>

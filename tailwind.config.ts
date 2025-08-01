@@ -26,6 +26,8 @@ const config: Config = {
         "fira-sans-condensed": ["var(--font-fira-sans-condensed)"],
       },
       colors: {
+        "brand-beige": "#fcf5ef",
+        "brand-green": "#7d806a",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
