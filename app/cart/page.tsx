@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { Header } from "@/components/Header"
+import Footer from "@/components/Footer"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -157,6 +158,7 @@ export default function CartPage() {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   )
 }
