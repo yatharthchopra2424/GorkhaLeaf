@@ -111,18 +111,18 @@ const Footer = () => {
             <h4 className="font-bold mb-4">Support</h4>
             <ul className="space-y-2 text-sm text-green-200">
               <li>
-                <Link href="#" className="hover:text-white transition-colors">
+                <Link href="/contact-us" className="hover:text-white transition-colors">
                   Contact Us
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white transition-colors">
-                  Shipping Info
+                <Link href="/shipping-policy" className="hover:text-white transition-colors">
+                  Shipping Policy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white transition-colors">
-                  Returns
+                <Link href="/cancellation-refund-policy" className="hover:text-white transition-colors">
+                  Returns & Refunds
                 </Link>
               </li>
               <li>
@@ -136,8 +136,8 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-white transition-colors">
-                  Size Guide
+                <Link href="/pricing-policy" className="hover:text-white transition-colors">
+                  Pricing Policy
                 </Link>
               </li>
             </ul>
@@ -150,13 +150,13 @@ const Footer = () => {
               &copy; {new Date().getFullYear()} Gorkha Leaf. All rights reserved. Made with ❤️ in Darjeeling.
             </p>
             <div className="flex items-center space-x-6 text-sm text-green-200">
-              <Link href="#" className="hover:text-white transition-colors">
+              <Link href="/privacy-policy" className="hover:text-white transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="#" className="hover:text-white transition-colors">
-                Terms of Service
+              <Link href="/terms-and-conditions" className="hover:text-white transition-colors">
+                Terms & Conditions
               </Link>
-              <Link href="#" className="hover:text-white transition-colors">
+              <Link href="/cancellation-refund-policy" className="hover:text-white transition-colors">
                 Refund Policy
               </Link>
             </div>
