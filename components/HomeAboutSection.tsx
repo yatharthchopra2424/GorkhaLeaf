@@ -55,7 +55,7 @@ const HomeAboutSection = () => {
               </div>
             </div>
           </div>
-          <div className="relative w-[500px] h-[500px] rounded-lg shadow-2xl overflow-hidden">
+          <div className="relative w-full max-w-md mx-auto aspect-square rounded-lg shadow-2xl overflow-hidden">
             <video
               ref={videoRef}
               src="/darjelling.mp4"

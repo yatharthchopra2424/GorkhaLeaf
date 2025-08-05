@@ -74,16 +74,34 @@ export function Header() {
           </div>
           {/* Header Actions */}
           <div className="flex items-center space-x-4">
-            <Button variant="ghost" size="sm" className="flex items-center space-x-2 hover:bg-black hover:text-white">
+            <Button
+              variant="ghost"
+              size="sm"
+              className={`flex items-center space-x-2 hover:bg-black hover:text-white transition-all duration-300 ${
+                !isScrolled ? "bg-white/20 backdrop-blur-sm" : ""
+              }`}
+            >
               <User className="h-5 w-5" />
               <span>Login</span>
             </Button>
-            <Button variant="ghost" size="sm" className="flex items-center space-x-2 hover:bg-black hover:text-white">
+            <Button
+              variant="ghost"
+              size="sm"
+              className={`flex items-center space-x-2 hover:bg-black hover:text-white transition-all duration-300 ${
+                !isScrolled ? "bg-white/20 backdrop-blur-sm" : ""
+              }`}
+            >
               <Heart className="h-5 w-5" />
               <span>Wishlist</span>
             </Button>
             <Link href="/cart">
-              <Button variant="ghost" size="sm" className="flex items-center space-x-2 relative hover:bg-black hover:text-white">
+              <Button
+                variant="ghost"
+                size="sm"
+                className={`flex items-center space-x-2 relative hover:bg-black hover:text-white transition-all duration-300 ${
+                  !isScrolled ? "bg-white/20 backdrop-blur-sm" : ""
+                }`}
+              >
                 <ShoppingCart className="h-5 w-5" />
                 <span>Cart</span>
                 {cartCount > 0 && (

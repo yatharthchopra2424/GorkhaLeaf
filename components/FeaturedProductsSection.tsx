@@ -7,12 +7,12 @@ import Link from "next/link"
 
 const FeaturedProductsSection = () => {
   return (
-    <section id="featured-products" className="py-12 bg-background">
+    <section id="featured-products" className="py-12 bg-white">
       <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center mb-10">
-          <div>
-            <h2 className="text-3xl font-bold text-green-800 mb-4" style={{ color: '#888a77' }}>Our Products</h2>
-            <p className="text-green-600" style={{ color: '#888a77' }}>Handpicked selections from our premium collection</p>
+        <div className="flex flex-col sm:flex-row sm:justify-between items-center mb-10">
+          <div className="text-center sm:text-left mb-6 sm:mb-0">
+            <h2 className="text-2xl sm:text-3xl font-bold text-green-800 mb-4" style={{ color: '#888a77' }}>Our Products</h2>
+            <p className="text-sm sm:text-base text-green-600" style={{ color: '#888a77' }}>Handpicked selections from our premium collection</p>
           </div>
           <div className="flex items-center space-x-4">
             <Button variant="outline" size="sm" className="flex items-center space-x-2 bg-transparent">
@@ -22,28 +22,30 @@ const FeaturedProductsSection = () => {
           </div>
         </div>
 
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full"
-        >
-          <CarouselContent>
-            {products.map((product) => (
-              <CarouselItem key={product.id} className="md:basis-1/2 lg:basis-1/4">
-                <ProductCard product={product} />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious />
-          <CarouselNext />
-        </Carousel>
+        <div className="overflow-hidden py-8">
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {products.map((product) => (
+                <CarouselItem key={product.id} className="basis-1/2 lg:basis-1/4">
+                  <ProductCard product={product} />
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious />
+            <CarouselNext />
+          </Carousel>
+        </div>
 
         <div className="text-center mt-6">
           <Link href="/products">
             <Button
-              size="lg"
+              className="text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4"
               style={{ backgroundColor: '#888a77', color: 'white' }}
             >
               View All Products

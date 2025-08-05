@@ -27,6 +27,18 @@
     --radius: 0.5rem;
   }
 
+  .embla__slide--active {
+    z-index: 10;
+  }
+
+  .embla__slide > div {
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .carousel-container {
+    overflow: visible;
+  }
+ 
   .dark {
     --background: 222.2 84% 4.9%;
     --foreground: 210 40% 98%;

@@ -5,18 +5,19 @@ const AboutUsSection = () => {
   return (
 <section className="relative py-20">
       <div className="container mx-auto px-4 relative">
-        <div className="grid lg:grid-cols-2 gap-8 items-center -m-16">
-          <div className="flex items-center justify-start">
+        <div className="grid lg:grid-cols-2 gap-8 items-center lg:-m-16">
+          <div className="flex items-center justify-center lg:justify-start">
             <Image
               src="/image_about.png"
               alt="About Us"
-              width={700}
-              height={700}
+              width={500}
+              height={500}
+              className="w-full h-auto max-w-sm md:max-w-md lg:max-w-lg"
             />
           </div>
           <div>
             <h3 className="text-lg font-bold uppercase text-brand-green tracking-widest mb-2">advantages</h3>
-            <h2 className="text-5xl font-bold text-brand-green mb-6">The Hidden Health Benefits of Tea</h2>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-green mb-6">The Hidden Health Benefits of Tea</h2>
             <p className="text-brand-green mb-8">
               Discover the wellness in every cup. Our teas are rich in antioxidants and natural compounds that can help improve your health, boost your immune system, and provide a sense of calm and well-being.
             </p>
